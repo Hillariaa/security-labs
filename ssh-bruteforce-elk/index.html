@@ -2,310 +2,186 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SSH Brute-Force Detection with GeoIP · Security Lab</title>
+  <title>Security Labs · Hillariaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Tailwind via CDN for quick styling -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-950 text-slate-50 min-h-screen">
+<body class="bg-slate-950 text-slate-50">
   <div class="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-    <header class="border-b border-slate-800/80 sticky top-0 backdrop-blur bg-slate-950/80 z-10">
-      <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between gap-3">
+    <!-- Top bar -->
+    <header class="border-b border-slate-800/80 sticky top-0 z-20 backdrop-blur bg-slate-950/80">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         <div>
-          <p class="text-xs uppercase tracking-[0.2em] text-emerald-400/80">
-            Security Lab · 01
+          <p class="text-[11px] uppercase tracking-[0.25em] text-emerald-400/80">
+            Security Portfolio
           </p>
           <h1 class="text-xl md:text-2xl font-semibold mt-1">
-            SSH Brute-Force Detection with GeoIP Enrichment
+            Detection & Security Engineering Labs
           </h1>
         </div>
-        <a
-          href="https://github.com/hillariaa/security-labs"
-          target="_blank"
-          class="text-xs md:text-sm px-3 py-1.5 rounded-full border border-emerald-400/40 hover:border-emerald-300 hover:bg-emerald-400/10 transition"
-        >
-          View repo ↗
-        </a>
+        <div class="flex items-center gap-2 text-xs">
+          <a
+            href="https://hillariaa.github.io/portfolio"
+            target="_blank"
+            class="px-3 py-1.5 rounded-full border border-slate-700 hover:border-slate-400 hover:bg-slate-900/80 transition"
+          >
+            Dev Portfolio ↗
+          </a>
+          <a
+            href="https://github.com/hillariaa/security-labs"
+            target="_blank"
+            class="px-3 py-1.5 rounded-full border border-emerald-500/40 text-emerald-200 hover:bg-emerald-500/10 transition"
+          >
+            View Code ↗
+          </a>
+        </div>
       </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-4 py-8 md:py-10 space-y-10">
-      <!-- Hero / Summary -->
-      <section class="grid md:grid-cols-[2fr,1.3fr] gap-6 items-start">
+    <main class="max-w-6xl mx-auto px-4 py-8 md:py-10 space-y-10">
+      <!-- Intro -->
+      <section class="grid md:grid-cols-[1.7fr,1.3fr] gap-6 items-start">
         <div class="space-y-4">
           <p class="text-sm md:text-base text-slate-200 leading-relaxed">
-            In this lab, I built a mini <strong>SIEM-style detection pipeline</strong> for SSH brute-force attacks
-            on an Ubuntu VM, using the <strong>Elastic Stack</strong>. Logs are shipped with Elastic Agent,
-            enriched with <strong>GeoIP</strong>, visualized in Kibana, and monitored with a
-            <strong>threshold-based alert rule</strong>.
+            This is my <strong>security portfolio</strong> – a collection of hands-on labs where I
+            build and document <strong>detection logic, log pipelines, and security automations</strong>.
+            Each lab is based on a realistic scenario and includes architecture, queries, and
+            screenshots from the tools I used.
           </p>
-
           <div class="grid sm:grid-cols-3 gap-3 text-xs md:text-sm">
             <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-3">
-              <p class="text-slate-400 mb-1">Focus</p>
-              <p class="font-medium">Brute-force detection, log analysis, alerting</p>
+              <p class="text-slate-400 mb-1">Focus areas</p>
+              <p class="font-medium">Detection engineering · SIEM · Logs</p>
             </div>
             <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-3">
-              <p class="text-slate-400 mb-1">Elastic Stack</p>
-              <p class="font-medium">Elastic Agent · Fleet · Kibana</p>
+              <p class="text-slate-400 mb-1">Tools</p>
+              <p class="font-medium">Elastic Stack, Linux, Python</p>
             </div>
             <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-3">
-              <p class="text-slate-400 mb-1">OS</p>
-              <p class="font-medium">Ubuntu (VM: ubuntu-siem-22)</p>
+              <p class="text-slate-400 mb-1">Format</p>
+              <p class="font-medium">Story-style write-ups + dashboards</p>
             </div>
           </div>
 
           <div class="flex flex-wrap gap-2 text-[11px] md:text-xs">
-            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">Elastic Agent</span>
-            <span class="px-2.5 py-1 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/30">Kibana Dashboards</span>
-            <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30">Detection Engineering</span>
-            <span class="px-2.5 py-1 rounded-full bg-rose-500/10 text-rose-300 border border-rose-500/30">GeoIP Enrichment</span>
+            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
+              Detection Engineering
+            </span>
+            <span class="px-2.5 py-1 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/30">
+              SIEM / Elastic
+            </span>
+            <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30">
+              Log Pipelines
+            </span>
+            <span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30">
+              Threat Simulation
+            </span>
           </div>
         </div>
 
-        <!-- Screenshot card -->
-        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-3 md:p-4 shadow-lg shadow-emerald-500/5">
-          <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-2">
-            Kibana · Host Activity
+        <!-- Small “radar” / stats card -->
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-4 space-y-3">
+          <p class="text-xs uppercase tracking-[0.25em] text-slate-400">
+            Lab Status
           </p>
-          <div class="aspect-[4/3] overflow-hidden rounded-xl border border-slate-800 bg-slate-950 flex items-center justify-center">
-            <!-- Replace src with your real path, e.g. images/ubuntu-siem-host-dashboard.png -->
-            <img
-              src="images/ubuntu-siem-host-dashboard.png"
-              alt="Elastic dashboard showing SSH failed login attempts and host activity"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <p class="mt-2 text-[11px] text-slate-400">
-            Dashboard visualizing SSH authentication failures on <code>ubuntu-siem-22</code>,
-            including GeoIP and top attacked usernames.
-          </p>
-        </div>
-      </section>
-
-      <!-- Goals & Scenario -->
-      <section class="grid md:grid-cols-2 gap-6">
-        <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 space-y-3">
-          <h2 class="text-lg font-semibold">Detection Goal</h2>
-          <p class="text-sm text-slate-200">
-            Detect potential <strong>SSH brute-force attacks</strong> by:
-          </p>
-          <ul class="list-disc list-inside text-sm text-slate-200 space-y-1.5">
-            <li>Collecting authentication logs from <code>/var/log/auth.log</code>.</li>
-            <li>Enriching source IPs with GeoIP (country, continent, geo location).</li>
-            <li>Alerting on repeated failed login attempts from a single source IP.</li>
-            <li>Visualizing attack patterns over time and geography.</li>
-          </ul>
-        </div>
-
-        <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 space-y-3">
-          <h2 class="text-lg font-semibold">Lab Scenario</h2>
-          <p class="text-sm text-slate-200">
-            I simulated an internet-facing Linux server exposed over SSH. A basic attack script
-            generated <strong>fake brute-force attempts</strong> from known public IP ranges
-            (Google DNS, Cloudflare, etc.), which were then ingested into Elastic for detection and analysis.
-          </p>
-        </div>
-      </section>
-
-      <!-- Architecture -->
-      <section class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 space-y-4">
-        <h2 class="text-lg font-semibold">Architecture</h2>
-        <div class="grid md:grid-cols-[1.6fr,1.4fr] gap-6">
-          <div class="text-sm text-slate-200 space-y-2">
-            <p>High-level flow for this lab:</p>
-            <ol class="list-decimal list-inside space-y-1.5">
-              <li>Elastic Agent installed on <code>ubuntu-siem-22</code> via Fleet enrollment.</li>
-              <li>System integration sends <code>system.auth</code> logs to Elasticsearch.</li>
-              <li>Ingest pipeline runs <strong>GeoIP processor</strong> on <code>source.ip</code>:
-                <code>source.geo.country_name</code>, <code>source.geo.location</code>, etc.</li>
-              <li>Detection rule runs KQL query on enriched events and triggers alerts.</li>
-              <li>Kibana dashboards and Lens charts visualize:
-                <ul class="list-disc list-inside ml-4 mt-1">
-                  <li>Failed SSH attempts over time</li>
-                  <li>Top usernames targeted</li>
-                  <li>Top attacking IPs and countries (Geo map)</li>
-                </ul>
-              </li>
-            </ol>
-          </div>
-          <div class="rounded-2xl border border-emerald-500/30 bg-slate-950/70 p-4 text-xs text-slate-200 space-y-2">
-            <p class="text-emerald-300 font-semibold mb-1">Tech Stack</p>
-            <div class="grid grid-cols-2 gap-2">
-              <div>
-                <p class="font-semibold text-slate-100">Data & Agent</p>
-                <ul class="list-disc list-inside space-y-1 mt-1">
-                  <li>Elastic Agent 8.19.9</li>
-                  <li>Fleet Server (self-managed)</li>
-                  <li>System integration (auth logs)</li>
-                </ul>
-              </div>
-              <div>
-                <p class="font-semibold text-slate-100">Analytics</p>
-                <ul class="list-disc list-inside space-y-1 mt-1">
-                  <li>Kibana Discover & Lens</li>
-                  <li>Detection rules (Kibana Security)</li>
-                  <li>GeoIP ingest pipeline</li>
-                </ul>
-              </div>
+          <div class="text-sm space-y-2">
+            <div class="flex justify-between">
+              <span class="text-slate-300">Completed labs</span>
+              <span class="font-semibold text-emerald-300">1 / 6</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-300">Platform</span>
+              <span class="text-slate-200">Elastic Stack</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-300">Current focus</span>
+              <span class="text-slate-200">SSH & host visibility</span>
             </div>
           </div>
+          <p class="text-[11px] text-slate-500">
+            This page will grow as I add more labs (Windows logs, cloud detections, malware sandboxing, etc.).
+          </p>
         </div>
       </section>
 
-      <!-- Detection Logic -->
-      <section class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 space-y-4">
-        <h2 class="text-lg font-semibold">Detection Logic</h2>
-
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="space-y-3">
-            <h3 class="text-sm font-semibold text-slate-100">
-              Base filter – SSH authentication failures
-            </h3>
-            <p class="text-sm text-slate-200">
-              I first narrowed down to SSH auth failures on <code>ubuntu-siem-22</code>:
-            </p>
-            <pre class="text-xs bg-slate-950/80 border border-slate-800 rounded-xl p-3 overflow-x-auto">
-event.dataset : "system.auth"
-and host.name : "ubuntu-siem-22"
-and system.auth.ssh.event : "Failed"
-            </pre>
-            <p class="text-xs text-slate-400">
-              This uses the normalized <code>system.auth.ssh.event</code> field instead of
-              searching raw messages, which is more robust over time.
-            </p>
-          </div>
-
-          <div class="space-y-3">
-            <h3 class="text-sm font-semibold text-slate-100">
-              Attack pattern – brute-force threshold rule
-            </h3>
-            <p class="text-sm text-slate-200">
-              I then turned this into a <strong>threshold rule</strong> that alerts when a single
-              IP triggers multiple failed logins in a short window:
-            </p>
-            <pre class="text-xs bg-slate-950/80 border border-emerald-600/40 rounded-xl p-3 overflow-x-auto">
-Index pattern: system-auth-logs
-KQL query:    event.dataset : "system.auth"
-              and system.auth.ssh.event : "Failed"
-
-Type:         Threshold rule
-Group by:     source.ip
-Threshold:    ≥ 5 events within 5 minutes
-            </pre>
-            <p class="text-xs text-slate-400">
-              When this condition is met, Kibana creates a security alert documenting the attacking IP,
-              username targeted, count of failures, and GeoIP metadata.
-            </p>
-          </div>
+      <!-- Labs grid -->
+      <section class="space-y-4">
+        <div class="flex items-end justify-between gap-2">
+          <h2 class="text-lg md:text-xl font-semibold">Labs</h2>
+          <p class="text-xs text-slate-400">
+            Click a card to view the full write-up, screenshots, and detection logic.
+          </p>
         </div>
-      </section>
 
-      <!-- GeoIP & Visualization -->
-      <section class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 space-y-4">
-        <h2 class="text-lg font-semibold">GeoIP Enrichment & Visualizations</h2>
-
-        <div class="grid md:grid-cols-[1.4fr,1.6fr] gap-6">
-          <div class="space-y-3 text-sm text-slate-200">
-            <h3 class="text-sm font-semibold text-slate-100">
-              GeoIP ingest pipeline
-            </h3>
-            <p>
-              I created an ingest pipeline that runs the <code>geoip</code> processor on
-              <code>source.ip</code> and writes results into the <code>source.geo</code> fields:
-            </p>
-            <pre class="text-xs bg-slate-950/80 border border-slate-800 rounded-xl p-3 overflow-x-auto">
-"geoip": {
-  "field": "source.ip",
-  "target_field": "source.geo",
-  "ignore_missing": true
-}
-            </pre>
-            <p class="text-xs text-slate-400">
-              This unlocks Kibana’s geo maps so I can view attacks by country and on a world map.
-            </p>
-
-            <h3 class="text-sm font-semibold text-slate-100 mt-4">
-              Key visualizations
-            </h3>
-            <ul class="list-disc list-inside space-y-1.5">
-              <li>Time series of SSH failures on <code>ubuntu-siem-22</code>.</li>
-              <li>Top targeted usernames (e.g., <code>root</code>, <code>admin</code>, <code>ubuntu</code>).</li>
-              <li>Top attacking IPs and countries (Geo map using <code>source.geo.location</code>).</li>
-            </ul>
-          </div>
-
-          <div class="space-y-3">
-            <div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-3 md:p-4">
-              <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-2">
-                Example – Enriched Event
+        <div class="grid md:grid-cols-2 gap-5">
+          <!-- Lab 1: SSH Brute-Force -->
+          <a
+            href="ssh-bruteforce-elk/index.html"
+            class="group rounded-2xl border border-slate-800 bg-slate-900/70 hover:border-emerald-400/70 hover:bg-slate-900 transition overflow-hidden flex flex-col"
+          >
+            <div class="p-4 pb-2 flex-1">
+              <p class="text-[11px] uppercase tracking-[0.2em] text-emerald-400/80 mb-1">
+                Lab 01 · Elastic Stack
               </p>
-              <pre class="text-[11px] bg-slate-950/50 border border-slate-800 rounded-xl p-3 overflow-x-auto">
-event.dataset: "system.auth"
-event.category: "authentication"
-system.auth.ssh.event: "Failed"
-source.ip: 185.53.177.31
-source.geo.country_name: "Germany"
-source.geo.location: { lat: 51.299, lon: 9.491 }
-related.user: "guest"
-related.hosts: "ubuntu-siem-22"
-              </pre>
-              <p class="mt-2 text-[11px] text-slate-400">
-                Enriched SSH failure event showing attacking IP, geo location, and target username.
+              <h3 class="text-base md:text-lg font-semibold mb-1">
+                SSH Brute-Force Detection with GeoIP Enrichment
+              </h3>
+              <p class="text-xs md:text-sm text-slate-300 mb-3">
+                Built a SIEM-style pipeline to detect SSH brute-force attempts on an Ubuntu VM using
+                Elastic Agent, Fleet, Kibana dashboards, and a threshold-based detection rule.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 text-[11px]">
+                <span class="px-2 py-0.5 rounded-full bg-slate-950/80 border border-slate-700 text-slate-200">
+                  SSH brute-force
+                </span>
+                <span class="px-2 py-0.5 rounded-full bg-slate-950/80 border border-slate-700 text-slate-200">
+                  system.auth logs
+                </span>
+                <span class="px-2 py-0.5 rounded-full bg-slate-950/80 border border-slate-700 text-slate-200">
+                  GeoIP enrichment
+                </span>
+                <span class="px-2 py-0.5 rounded-full bg-slate-950/80 border border-slate-700 text-slate-200">
+                  Detection rules
+                </span>
+              </div>
+            </div>
+
+            <!-- Thumbnail / placeholder image -->
+            <div class="mt-2 border-t border-slate-800 bg-slate-950/80">
+              <div class="aspect-[16/7] overflow-hidden">
+                <img
+                  src="ssh-bruteforce-elk/images/ubuntu-siem-host-dashboard.png"
+                  alt="Kibana dashboard for SSH brute-force detection lab"
+                  class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.01] transition"
+                />
+              </div>
+            </div>
+          </a>
+
+          <!-- Future labs placeholder -->
+          <div class="rounded-2xl border border-dashed border-slate-700/80 bg-slate-900/40 p-4 flex flex-col justify-between">
+            <div>
+              <p class="text-[11px] uppercase tracking-[0.2em] text-slate-400 mb-1">
+                Coming soon
+              </p>
+              <h3 class="text-base md:text-lg font-semibold mb-1">
+                Windows Event Log Detection · Cloud · More
+              </h3>
+              <p class="text-xs md:text-sm text-slate-300">
+                This portfolio will eventually include labs for Windows event logs, cloud audit logs,
+                endpoint telemetry, and correlation rules across multiple data sources.
               </p>
             </div>
+            <p class="mt-3 text-[11px] text-slate-500">
+              Check back for new labs – I’m actively expanding this with more blue team experiments.
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- Outcomes / Resume bullets -->
-      <section class="rounded-2xl border border-emerald-500/40 bg-slate-900/70 p-5 space-y-4">
-        <h2 class="text-lg font-semibold">What this demonstrates</h2>
-        <p class="text-sm text-slate-200">
-          Here are some bullet points I can reuse directly in a resume or LinkedIn “Projects” section:
-        </p>
-
-        <ul class="list-disc list-inside text-sm text-slate-100 space-y-1.5">
-          <li>
-            Built an Elastic Stack lab to detect SSH brute-force attacks against an Ubuntu server
-            using <strong>Elastic Agent, Fleet, and Kibana</strong>.
-          </li>
-          <li>
-            Normalized Linux authentication logs (<code>system.auth</code>) and created KQL-based
-            detections for <strong>failed SSH logins</strong> on host <code>ubuntu-siem-22</code>.
-          </li>
-          <li>
-            Implemented a <strong>threshold detection rule</strong> that raises alerts when 5+ SSH
-            failures occur from the same IP within 5 minutes, reducing noise and highlighting
-            likely brute-force attempts.
-          </li>
-          <li>
-            Configured a <strong>GeoIP ingest pipeline</strong> to enrich <code>source.ip</code> with
-            <code>source.geo</code> (country, continent, location) and visualized attack origins
-            on Kibana maps and dashboards.
-          </li>
-          <li>
-            Simulated attack traffic with a custom Python script to validate detection logic and
-            verify alerts and visualizations end-to-end.
-          </li>
-        </ul>
-      </section>
-
-      <!-- How to use / navigate -->
-      <section class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 space-y-3 text-sm text-slate-200">
-        <h2 class="text-lg font-semibold">How to explore this project</h2>
-        <ol class="list-decimal list-inside space-y-1.5">
-          <li>Start at my main portfolio and navigate to the <strong>Security Labs</strong> section.</li>
-          <li>Open <strong>“SSH Brute-Force Detection with GeoIP (Elastic Stack)”</strong>.</li>
-          <li>Review the architecture diagram and detection logic.</li>
-          <li>Scroll through screenshots of the <strong>Kibana dashboard</strong> and
-              <strong>alert rule</strong> configuration.</li>
-          <li>Skim the resume-ready bullet points at the bottom to see what skills this lab highlights.</li>
-        </ol>
-      </section>
-
-      <footer class="py-6 text-xs text-slate-500 text-center border-t border-slate-900 mt-8">
-        Part of my <span class="text-emerald-300">security-labs</span> series.
+      <footer class="py-6 text-xs text-slate-500 text-center border-t border-slate-900 mt-10">
+        Built as a dedicated <span class="text-emerald-300">security portfolio</span> separate from my frontend work.
       </footer>
     </main>
   </div>
